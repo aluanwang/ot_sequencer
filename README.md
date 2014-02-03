@@ -7,7 +7,8 @@ ot_sequencer
 
 使用範例
 ============
-http://www.youtube.com/watch?v=joGUQazycRQ
+http://www.youtube.com/watch?v=joGUQazycRQ 
+
 http://www.youtube.com/watch?v=G7Lu2Wy2WsY
 
 
