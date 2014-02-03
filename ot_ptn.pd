@@ -1,0 +1,41 @@
+#N canvas 764 207 450 300 10;
+#X obj 35 83 sel 0;
+#X obj 35 37 % 1;
+#X obj 62 105 t b;
+#X floatatom 180 122 6 0 0 0 - - -;
+#X floatatom 120 122 6 0 0 0 - - -;
+#X obj 193 103 nbx 1 15 1 8 0 0 empty empty empty 0 -8 0 15 -1 -258113
+-1 2 256;
+#X msg 117 40 1;
+#X obj 35 125 t b;
+#X obj 35 7 r count_\$1;
+#X obj 257 199 s pattern_\$2;
+#X obj 163 123 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 103 123 bng 15 250 50 0 empty empty empty 17 7 0 10 -191407
+-1 -1;
+#X obj 35 62 spigot;
+#X obj 174 103 tgl 15 0 empty empty empty 17 7 0 10 -1 -258113 -1 0
+1;
+#X obj 97 162 v p_\$2;
+#X obj 158 164 v p_\$2;
+#X obj 117 19 t b;
+#X connect 0 0 7 0;
+#X connect 0 1 2 0;
+#X connect 1 0 12 0;
+#X connect 2 0 4 0;
+#X connect 3 0 9 0;
+#X connect 4 0 9 0;
+#X connect 5 0 1 1;
+#X connect 5 0 16 0;
+#X connect 6 0 13 0;
+#X connect 7 0 3 0;
+#X connect 8 0 1 0;
+#X connect 10 0 15 0;
+#X connect 11 0 14 0;
+#X connect 12 0 0 0;
+#X connect 13 0 12 1;
+#X connect 14 0 4 0;
+#X connect 15 0 3 0;
+#X connect 16 0 6 0;
+#X coords 0 -1 1 1 120 40 1 100 100;

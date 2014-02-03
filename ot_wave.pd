@@ -1,0 +1,52 @@
+#N canvas 140 242 842 423 10;
+#X obj 105 140 cnv 15 100 15 empty \$0FileCnv ana-snare-1.wav 5 8 0
+10 -228856 -66577 0;
+#X obj 90 56 inlet;
+#X obj 104 121 bng 15 250 50 0 empty empty read 17 7 0 10 -262144 -1
+-1;
+#X obj 261 120 openpanel;
+#X obj 109 223 readsf~;
+#X msg 261 146 open \$1;
+#X obj 109 312 outlet~;
+#X msg 261 170 set open \$1;
+#X obj 109 164 t b b;
+#X obj 156 121 bng 15 250 50 0 empty empty bng 17 7 0 10 -262144 -1
+-1;
+#X msg 109 192 start;
+#X obj 463 136 s \$0FileCnv;
+#X msg 463 113 label \$1;
+#X obj 376 88 splitfilename /;
+#X msg 260 191 open analog_kit/ana-clap.wav;
+#X obj 159 103 hsl 50 15 0 2 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 2474 1;
+#X obj 109 278 *~ 1;
+#X floatatom 224 113 5 0 0 0 - - -;
+#X obj 225 2 loadbang;
+#X msg 225 22 1.01;
+#X obj 408 7 inlet;
+#X msg 405 49 set open \$1;
+#X obj 407 28 symbol;
+#X connect 1 0 9 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 3 0 13 0;
+#X connect 4 0 16 0;
+#X connect 5 0 7 0;
+#X connect 7 0 14 0;
+#X connect 8 0 10 0;
+#X connect 8 1 14 0;
+#X connect 9 0 8 0;
+#X connect 10 0 4 0;
+#X connect 12 0 11 0;
+#X connect 13 1 12 0;
+#X connect 14 0 4 0;
+#X connect 15 0 17 0;
+#X connect 16 0 6 0;
+#X connect 17 0 16 1;
+#X connect 18 0 19 0;
+#X connect 19 0 15 0;
+#X connect 20 0 22 0;
+#X connect 21 0 14 0;
+#X connect 22 0 21 0;
+#X connect 22 0 13 0;
+#X coords 0 -1 1 1 120 60 1 100 100;

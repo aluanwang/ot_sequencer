@@ -1,0 +1,22 @@
+#N canvas 0 22 440 437 10;
+#X obj 304 92 inlet;
+#X obj 153 130 noise~;
+#X obj 152 166 samphold~;
+#X obj 154 319 outlet~;
+#X obj 154 296 *~ 0.7;
+#X obj 303 121 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 153 199 lop~ 4000;
+#X obj 154 232 hip~ 3000;
+#X obj 204 39 phasor~ 10;
+#X obj 154 269 *~ 0;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 6 0;
+#X connect 4 0 3 0;
+#X connect 5 0 8 1;
+#X connect 5 0 9 1;
+#X connect 6 0 7 0;
+#X connect 7 0 9 0;
+#X connect 8 0 2 1;
+#X connect 9 0 4 0;
