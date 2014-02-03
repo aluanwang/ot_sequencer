@@ -8,5 +8,10 @@ ot_sequencer
 
 資料夾中的音源（analog_kit）來自於AudioMulch的範例檔，在本專案
 上僅供教學上使用，請勿拿此音源當作商業素材。
+============
+使用範例
+http://www.youtube.com/watch?v=joGUQazycRQ
+http://www.youtube.com/watch?v=G7Lu2Wy2WsY
+
 
 
