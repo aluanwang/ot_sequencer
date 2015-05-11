@@ -1,11 +1,11 @@
-#N canvas 385 39 881 656 10;
+#N canvas 31 64 881 656 10;
 #X obj -132 224 inlet~;
 #X obj -122 276 rfft~;
 #X obj -122 309 *~;
 #X obj -91 309 *~;
 #X obj -122 339 sqrt~;
 #X obj 125 29 hsl 50 12 0.1 50 0 0 \$0a \$0b Gain -36 5 0 10 -228856
--1 -1 0 1;
+-1 -1 2800 1;
 #X obj -122 428 tabwrite~ \$0-spectrum;
 #X obj -131 449 outlet~;
 #N canvas 0 22 1035 635 (subpatch) 0;
@@ -17,19 +17,19 @@
 1;
 #X obj -251 189 loadbang;
 #X obj 122 14 hradio 12 1 0 3 empty empty Block -40 6 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X obj -122 369 *~ 0.5;
 #X obj -122 389 /~ 2048;
 #X obj 17 152 hsl 251 10 0 256 0 0 empty empty start 30 6 0 8 -191407
 -1 -1 0 1;
 #X obj 17 166 hsl 251 10 0 256 0 0 empty empty end 30 6 0 8 -191407
--1 -1 0 1;
+-1 -1 25000 1;
 #X obj 14 211 int;
 #X obj 254 14 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 330 230 outlet;
 #X obj 274 49 vsl 10 95 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 1800 1;
+-1 -1 2400 1;
 #X obj 122 -40 loadbang;
 #X obj -251 379 switch~ 8192;
 #X obj 303 147 t b b;
@@ -44,7 +44,7 @@
 -1 0;
 #X msg 174 -16 0;
 #X obj 218 -24 s \$0-track;
-#N canvas 772 276 634 570 track-0 0;
+#N canvas 831 113 634 570 track-0 1;
 #X floatatom 183 142 5 0 0 0 - - -;
 #X obj 183 172 expr abs($f1-$f2);
 #X floatatom 183 197 5 0 0 0 - - -;
@@ -72,9 +72,12 @@
 #X obj 183 57 t b b b b b;
 #X msg 266 382 0;
 #X obj 183 29 inlet;
-#X obj 183 541 outlet;
+#X obj 183 565 outlet;
 #X obj 266 407 tabread \$0-ll;
 #X obj 297 125 tabread \$0-ss;
+#X floatatom 272 433 5 0 0 0 - - -;
+#X obj 261 487 spigot;
+#X obj 287 461 > 0;
 #X connect 0 0 1 0;
 #X connect 0 0 3 0;
 #X connect 1 0 2 0;
@@ -98,7 +101,7 @@
 #X connect 16 0 13 0;
 #X connect 17 0 13 0;
 #X connect 18 0 6 0;
-#X connect 19 0 26 0;
+#X connect 19 0 30 0;
 #X connect 20 0 0 0;
 #X connect 21 0 20 0;
 #X connect 22 0 28 0;
@@ -110,7 +113,11 @@
 #X connect 24 0 27 0;
 #X connect 25 0 23 0;
 #X connect 27 0 11 1;
+#X connect 27 0 29 0;
 #X connect 28 0 15 0;
+#X connect 29 0 31 0;
+#X connect 30 0 26 0;
+#X connect 31 0 30 1;
 #X restore 330 208 pd track-0;
 #X obj 220 292 table \$0-ss 5;
 #X obj 221 314 table \$0-ee 5;
@@ -118,7 +125,7 @@
 #X obj 345 276 outlet;
 #X obj 364 322 outlet;
 #X obj 394 369 outlet;
-#N canvas 388 314 634 570 track-1 0;
+#N canvas 482 50 634 570 track-1 0;
 #X floatatom 183 142 5 0 0 0 - - -;
 #X obj 183 172 expr abs($f1-$f2);
 #X floatatom 183 197 5 0 0 0 - - -;
@@ -149,6 +156,8 @@
 #X msg 295 103 1;
 #X msg 267 380 1;
 #X obj 295 125 tabread \$0-ss;
+#X obj 271 497 spigot;
+#X obj 297 471 > 0;
 #X connect 0 0 1 0;
 #X connect 0 0 3 0;
 #X connect 1 0 2 0;
@@ -172,7 +181,7 @@
 #X connect 16 0 13 0;
 #X connect 17 0 13 0;
 #X connect 18 0 6 0;
-#X connect 19 0 23 0;
+#X connect 19 0 29 0;
 #X connect 20 0 0 0;
 #X connect 21 0 25 0;
 #X connect 21 1 26 0;
@@ -181,12 +190,15 @@
 #X connect 21 4 27 0;
 #X connect 22 0 21 0;
 #X connect 24 0 11 1;
+#X connect 24 0 30 0;
 #X connect 25 0 20 0;
 #X connect 26 0 28 0;
 #X connect 27 0 24 0;
 #X connect 28 0 15 0;
+#X connect 29 0 23 0;
+#X connect 30 0 29 1;
 #X restore 345 254 pd track-1;
-#N canvas 388 314 634 570 track-2 0;
+#N canvas 430 112 634 570 track-2 0;
 #X floatatom 183 142 5 0 0 0 - - -;
 #X obj 183 172 expr abs($f1-$f2);
 #X floatatom 183 197 5 0 0 0 - - -;
@@ -217,6 +229,8 @@
 #X msg 295 102 2;
 #X msg 266 382 2;
 #X obj 295 125 tabread \$0-ss;
+#X obj 281 507 spigot;
+#X obj 307 481 > 0;
 #X connect 0 0 1 0;
 #X connect 0 0 3 0;
 #X connect 1 0 2 0;
@@ -240,7 +254,7 @@
 #X connect 16 0 13 0;
 #X connect 17 0 13 0;
 #X connect 18 0 6 0;
-#X connect 19 0 23 0;
+#X connect 19 0 29 0;
 #X connect 20 0 0 0;
 #X connect 21 0 25 0;
 #X connect 21 1 26 0;
@@ -249,10 +263,13 @@
 #X connect 21 4 27 0;
 #X connect 22 0 21 0;
 #X connect 24 0 11 1;
+#X connect 24 0 30 0;
 #X connect 25 0 20 0;
 #X connect 26 0 28 0;
 #X connect 27 0 24 0;
 #X connect 28 0 15 0;
+#X connect 29 0 23 0;
+#X connect 30 0 29 1;
 #X restore 364 300 pd track-2;
 #N canvas 437 168 634 570 track-3 0;
 #X floatatom 183 142 5 0 0 0 - - -;
@@ -285,6 +302,8 @@
 #X msg 295 103 3;
 #X msg 267 382 3;
 #X obj 295 125 tabread \$0-ss;
+#X obj 291 517 spigot;
+#X obj 317 491 > 0;
 #X connect 0 0 1 0;
 #X connect 0 0 3 0;
 #X connect 1 0 2 0;
@@ -308,7 +327,7 @@
 #X connect 16 0 13 0;
 #X connect 17 0 13 0;
 #X connect 18 0 6 0;
-#X connect 19 0 23 0;
+#X connect 19 0 29 0;
 #X connect 20 0 0 0;
 #X connect 21 0 25 0;
 #X connect 21 1 26 0;
@@ -317,10 +336,13 @@
 #X connect 21 4 27 0;
 #X connect 22 0 21 0;
 #X connect 24 0 11 1;
+#X connect 24 0 30 0;
 #X connect 25 0 20 0;
 #X connect 26 0 28 0;
 #X connect 27 0 24 0;
 #X connect 28 0 15 0;
+#X connect 29 0 23 0;
+#X connect 30 0 29 1;
 #X restore 394 347 pd track-3;
 #X obj 14 277 tabwrite \$0-ee;
 #X obj -114 -76 r \$0-track;
